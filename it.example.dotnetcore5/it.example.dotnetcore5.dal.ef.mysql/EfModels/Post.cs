@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using it.example.dotnetcore5.domain.Interfaces.Models;
+using System;
 
 #nullable disable
 

@@ -5,13 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-namespace it.example.dotnetcore5.webapi.Controllers
+namespace it.example.dotnetcore5.webapi.Controllers.V3
 {
     /// <summary>
     /// Handle Posts of blog
     /// </summary>
-    [Route("api/[controller]")]
-    //[ApiController]
+    [ApiController]
+    [ApiVersion("3")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
@@ -34,6 +35,7 @@ namespace it.example.dotnetcore5.webapi.Controllers
         /// </summary>
         /// <returns>list of Posts</returns>
         [HttpGet]
+        [MapToApiVersion("3")]
         public IEnumerable<IPost> Get()
         {
             var posts = _postsService.GetAll();
@@ -48,6 +50,7 @@ namespace it.example.dotnetcore5.webapi.Controllers
         /// <param name="id"></param>
         /// <returns>the post with requested id</returns>
         [HttpGet("{id}")]
+        [MapToApiVersion("3")]
         public IPost Get(int id)
         {
             var post = _postsService.GetById(id);
@@ -56,6 +59,7 @@ namespace it.example.dotnetcore5.webapi.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion("3")]
         public void Add()
         {
             Post newPost = new()
