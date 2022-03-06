@@ -133,3 +133,4 @@ dist
 /it.example.dotnetcore5/it.example.dotnetcore5.dal.webapi/obj
 /it.example.dotnetcore5/it.example.dotnetcore5.bl.tests.integration/bin/Debug/net5.0
 /it.example.dotnetcore5/it.example.dotnetcore5.bl.tests.integration/obj
+/.vs
